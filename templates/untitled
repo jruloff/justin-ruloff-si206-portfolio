@@ -1,0 +1,10 @@
+{%extends "templates/base.html" %}
+{% block content %}
+
+	{% if username == "Colleen" and password == "pass"%}
+	Hey, you actually got the credentials correct. congratulations!!!
+	{% elif %}
+	Yeah, your credentials are incorrect...
+	{% endif %}
+		
+{% endblock %}
