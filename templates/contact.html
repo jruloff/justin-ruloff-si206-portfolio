@@ -1,0 +1,12 @@
+{%extends "templates/base.html" %}
+{% block content %}
+	<p>If you would like to be updated on events that happen in my amazingly entertaining life (lol), please submit your e-mail and I will send you an e-mail thanking you for signing up to follow me!</p>
+
+	<form action="/contact.html" method = "post">
+        <label>First Name:<input type="text" name="firstName"></label><br>
+        <label>Last Name:<input type="text" name="lastName"></label><br>
+        <label>E-mail:<input type="email" name="emailAddr"></label><br>
+        <input type = "submit" class="btn btn-info" value="Submit">
+    </form> 
+		
+{% endblock %}

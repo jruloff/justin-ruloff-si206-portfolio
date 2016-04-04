@@ -1,0 +1,132 @@
+header{
+	width:100%;
+	text-align: center;
+}
+
+header #headerImage{
+	display: block;
+	margin: 0 auto;
+}
+
+header .socialIcon{
+	font-size: 2.5em;
+}
+
+header #emailAddr{
+	font-size: 18px;
+}
+
+.fa-envelope{
+	margin-right: 3px;
+	display: auto;
+}
+
+#myCarousel{
+	display: none;
+}
+
+.carousel-inner img{
+	margin: auto;
+	max-width: none;
+}
+#workJumbotron{
+	display: none;
+	background-image: url('../static/workhard.jpg');
+	background-size: 100% 100%;
+	min-height: 300px;
+	margin-top: 10px;
+	border-radius: 15px;
+}
+
+img{
+	-webkit-filter: opacity(80%);
+	text-align: center;
+}
+
+h1{
+	text-align: center;
+}
+
+h2{
+	text-align: center;
+}
+
+p{
+	text-align: center;
+}
+
+body{
+	padding-top: 60px;
+	font-size: 16px;
+	margin-bottom: 20px;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
+}
+
+ul.centerList{
+	list-style-type: none;
+	text-align: center;
+}
+.setTable{
+	display: table;
+	margin: auto;
+}
+
+.aboutParagraph{
+	margin-bottom: 30px;
+	display: table-cell;
+}
+
+.aboutParagraph img{
+	margin: 0px auto;
+	text-align: center;
+}
+
+footer{
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	margin-top: 20px;
+	background-color: yellow;
+}
+
+@media(min-width:768px){
+	header #headerImage{
+		width: 350px;
+		height: 350px;
+	}
+	header .socialIcon{
+		font-size: 3.25em;
+	}
+	header #emailAddr{
+		font-size: 22px;
+	}
+	#workJumbotron{
+		display: block;
+	}
+}
+
+@media(min-width:993px){
+	header #headerImage{
+		display: inline-block;
+	}
+
+	header #headerLinksContainer{
+		display: inline-block;
+		margin-left: 10px;
+		vertical-align: middle;
+	}
+
+	header .socialIcon{
+		font-size: 4em;
+	}
+	header #emailAddr{
+		font-size: 26px;
+	}
+	header{
+		text-align: left;
+		width: 50%;
+		margin-left: 10px;
+		display: inline-block;
+	}
+
+}

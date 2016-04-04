@@ -18,6 +18,8 @@ import webapp2
 import os
 import logging
 import jinja2
+#import smtplib
+from google.appengine.api import mail
 
 # Lets set it up so we know where we stored the template files
 JINJA_ENVIRONMENT = jinja2.Environment(
@@ -25,66 +27,54 @@ JINJA_ENVIRONMENT = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
-michiganLink = "Michigan"
-basketballLink = "Basketball"
-nikeLink = "Nike"
-loginLink = "Login"
-michiganPath = "/michigan.html"
-basketballPath = "/basketball.html"
-nikePath = "/nike.html"
-loginMessage = "Login...I bet you can't guess the password"
-correctLoginMessage = "You logged in"
-michiganMessage = "WHADDUP UMICH!!!"
-basketballMessage = "WHADDUP LEBRON!!!"
-nikeMessage = "SWOOSH!!!"
-
-class MainHandler(webapp2.RequestHandler):
+class AboutHandler(webapp2.RequestHandler):
     def get(self):
+        template = JINJA_ENVIRONMENT.get_template('templates/about.html')
+        self.response.write(template.render())
 
-        currentPath = self.request.path
-
-        try:
-            template = JINJA_ENVIRONMENT.get_template('templates' + currentPath)
-
-            if currentPath == michiganPath:
-               self.response.write(template.render({'title': michiganMessage, 'michigan': michiganLink.upper(), 'basketball': basketballLink, 'nike': nikeLink, 'login': loginLink} ) )
-
-            if currentPath == basketballPath:
-               self.response.write(template.render({'title': basketballMessage, 'michigan': michiganLink, 'basketball': basketballLink.upper(), 'nike': nikeLink, 'login': loginLink} ) )
-
-            if currentPath == nikePath:
-               self.response.write(template.render({'title': nikeMessage, 'michigan': michiganLink, 'basketball': basketballLink, 'nike': nikeLink.upper(), 'login': loginLink} ) )
-
-        except:
-            logging.info(currentPath)
-            template = JINJA_ENVIRONMENT.get_template('templates/michigan.html')
-            self.response.write(template.render({'title': michiganMessage, 'michigan': michiganLink.upper(), 'basketball': basketballLink, 'nike': nikeLink, 'login': loginLink} ) )
-
-
-
-class LoginPageHandler(webapp2.RequestHandler):
+class EducationHandler(webapp2.RequestHandler):
     def get(self):
+        template = JINJA_ENVIRONMENT.get_template('templates/education.html')
+        self.response.write(template.render())
 
-        template = JINJA_ENVIRONMENT.get_template('templates/login.html')
-        self.response.write(template.render({'title': loginMessage, 'michigan': michiganLink, 'basketball': basketballLink, 'nike': nikeLink, 'login': loginLink.upper()}))
+class ProjectsHandler(webapp2.RequestHandler):
+    def get(self):
+        template = JINJA_ENVIRONMENT.get_template('templates/work.html')
+        self.response.write(template.render())
+
+class ContactHandler(webapp2.RequestHandler):
+    def get(self):
+        template = JINJA_ENVIRONMENT.get_template('templates/contact.html')
+        self.response.write(template.render())
 
     def post(self):
-        template = JINJA_ENVIRONMENT.get_template('templates/loginAfter.html')
+        userFirstName = self.request.get("firstName")
+        userLastName = self.request.get("lastName")
+        userEmail = self.request.get("emailAddr")
 
-        inputUsername = self.request.get('name')
-        inputPassword = self.request.get('pw')
-
-        if (inputUsername != "Colleen") or (inputPassword != "pass"):
-            logging.info("************* " + inputUsername + " *************")
-            logging.info("************* " + inputPassword + " *************")
-            self.response.write(template.render({'title': loginMessage, 'michigan': michiganLink, 'basketball': basketballLink, 'nike': nikeLink, 'login': loginLink.upper(), 'checkUsername': inputUsername, 'checkPassword': inputPassword}))
+        if not mail.is_email_valid(userEmail):
+            logging.info("Bad email")
 
         else:
-            self.response.write(template.render({'title': correctLoginMessage, 'michigan': michiganLink, 'basketball': basketballLink, 'nike': nikeLink, 'login': loginLink.upper(), 'checkUsername': inputUsername, 'checkPassword': inputPassword}))
+            senderAddr = "Justin Ruloff <justinruloff@gmail.com>"
+            subject = "Thanks for Subscribing!"
+            body = "Hi, " + userFirstName + "!" + """ Thanks for subscribing to my life. I won't update you."""
+
+            mail.send_mail(senderAddr,userEmail,subject,body)
+        
+        #message = "Hey, Thanks for subscribing! I probably won't keep you updated. I'm e-mailing you on one of my throwaway accounts, because this probably isn't very safe."
+        #mail = smtplib.SMTP('smtp.gmail.com', 587)
+        #mail.ehlo()
+        #mail.starttls()
+        #mail.login('justinruloffalt@gmail.com','hahapwn3d')
+        #mail.sendmail('justinruloffalt@gmail.com',userEmail,message)
+
+        #mail.close()
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler),
-    ('/login.html', LoginPageHandler),
-    ('/login', LoginPageHandler),
-    ('/.*', MainHandler)
+    ('/', AboutHandler),
+    ('/about.html', AboutHandler),
+    ('/education.html', EducationHandler),
+    ('/work.html', ProjectsHandler),
+    ('/contact.html', ContactHandler)
 ], debug=True)
