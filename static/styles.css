@@ -14,6 +14,7 @@ header .socialIcon{
 
 header #emailAddr{
 	font-size: 18px;
+	margin-top: 7px;
 }
 
 .fa-envelope{
@@ -22,12 +23,14 @@ header #emailAddr{
 }
 
 #myCarousel{
-	display: none;
+	width: 95%;
+	margin: auto;
+	margin-top: 10px;
 }
 
 .carousel-inner img{
 	margin: auto;
-	max-width: none;
+	width: 100%;
 }
 #workJumbotron{
 	display: none;
@@ -57,22 +60,18 @@ p{
 
 body{
 	padding-top: 60px;
+	padding-bottom: 44px;
 	font-size: 16px;
 	margin-bottom: 20px;
 	font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
 }
 
-ul.centerList{
-	list-style-type: none;
-	text-align: center;
-}
 .setTable{
 	display: table;
 	margin: auto;
 }
 
 .aboutParagraph{
-	margin-bottom: 30px;
 	display: table-cell;
 }
 
@@ -81,12 +80,22 @@ ul.centerList{
 	text-align: center;
 }
 
+#aboutImageSection{
+	margin-top: 15px;
+}
+
+.aboutImages img{
+	width: 100%;
+	text-align: center;
+	margin-bottom: 3px;
+}
+
 footer{
 	position: absolute;
 	text-align: center;
-	width: 100%;
 	margin-top: 20px;
-	background-color: yellow;
+	width: 100%;
+	background-color: rgba(255,255,0,.3);
 }
 
 @media(min-width:768px){
@@ -102,6 +111,31 @@ footer{
 	}
 	#workJumbotron{
 		display: block;
+	}
+	.aboutImages img{
+		margin-bottom: 0px;
+	}
+	.lowerRow{
+		margin-top: 25px;
+	}
+
+	#myCarousel{
+		width: 98%;
+	}
+	.carousel-inner{
+		max-height: 450px;
+	}
+	.carousel-inner img{
+		width: 600px;
+		height: 450px;
+	}
+	body{
+		padding-bottom: 22px;
+	}
+	footer{
+		width: 50%;
+		margin-left: 25%;
+		margin-right: 25%;
 	}
 }
 
@@ -123,10 +157,14 @@ footer{
 		font-size: 26px;
 	}
 	header{
-		text-align: left;
-		width: 50%;
+		/*text-align: left;*/
+		width: 98%;
 		margin-left: 10px;
 		display: inline-block;
+	}
+
+	.lowerRow{
+		margin-top: 0px;
 	}
 
 }

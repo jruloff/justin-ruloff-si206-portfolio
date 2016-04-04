@@ -15,6 +15,13 @@
     <header>  
       <img src="../static/dolphin.jpg" class="img-circle" id="headerImage">
       <div id="headerLinksContainer">
+        <div id="emailInfo">
+          <div id="emailAddr">
+            Justin Ruloff<br>
+            <i class="fa fa-envelope"></i>
+            justinruloff@gmail.com
+          </div>
+        </div>
         <a href="https://www.facebook.com/justin.ruloff" class="btn btn-social-icon btn-facebook socialIcon">
           <span class="fa fa-facebook"></span>
         </a>
@@ -27,12 +34,6 @@
         <a href="https://www.linkedin.com/in/justin-ruloff-a516b8100" class="btn btn-social-icon btn-linkedin socialIcon">
           <span class="fa fa-linkedin"></span>
         </a>
-        <div id="emailInfo">
-          <div id="emailAddr">
-            <i class="fa fa-envelope"></i>
-            justinruloff@gmail.com
-          </div>
-        </div>
       </div>
       {% block headerImages %}
       {% endblock %}
@@ -63,10 +64,10 @@
   		{% block content %}
   		{% endblock %}
     </div>
-    <footer>
+  </div>
+  <footer id="myFooter">
       &copy; Created by Justin Ruloff - University of Michigan College of Engineering. 2016.
     </footer>
-  </div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
