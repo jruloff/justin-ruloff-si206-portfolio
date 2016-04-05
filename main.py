@@ -46,31 +46,7 @@ class ContactHandler(webapp2.RequestHandler):
     def get(self):
         template = JINJA_ENVIRONMENT.get_template('templates/contact.html')
         self.response.write(template.render())
-
-    def post(self):
-        userFirstName = self.request.get("firstName")
-        userLastName = self.request.get("lastName")
-        userEmail = self.request.get("emailAddr")
-
-        if not mail.is_email_valid(userEmail):
-            logging.info("Bad email")
-
-        else:
-            senderAddr = "Justin Ruloff <justinruloff@gmail.com>"
-            subject = "Thanks for Subscribing!"
-            body = "Hi, " + userFirstName + "!" + """ Thanks for subscribing to my life. I won't update you."""
-
-            mail.send_mail(senderAddr,userEmail,subject,body)
         
-        #message = "Hey, Thanks for subscribing! I probably won't keep you updated. I'm e-mailing you on one of my throwaway accounts, because this probably isn't very safe."
-        #mail = smtplib.SMTP('smtp.gmail.com', 587)
-        #mail.ehlo()
-        #mail.starttls()
-        #mail.login('justinruloffalt@gmail.com','hahapwn3d')
-        #mail.sendmail('justinruloffalt@gmail.com',userEmail,message)
-
-        #mail.close()
-
 app = webapp2.WSGIApplication([
     ('/', AboutHandler),
     ('/about.html', AboutHandler),

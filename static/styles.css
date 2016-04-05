@@ -60,7 +60,6 @@ p{
 
 body{
 	padding-top: 60px;
-	padding-bottom: 44px;
 	font-size: 16px;
 	margin-bottom: 20px;
 	font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, sans-serif;
@@ -90,6 +89,16 @@ body{
 	margin-bottom: 3px;
 }
 
+form{
+	text-align: center;
+}
+#emailBox{
+	margin-left: 30px;
+}
+
+.videoPlayer{
+	width: 90%;
+}
 footer{
 	position: absolute;
 	text-align: center;
@@ -129,9 +138,6 @@ footer{
 		width: 600px;
 		height: 450px;
 	}
-	body{
-		padding-bottom: 22px;
-	}
 	footer{
 		width: 50%;
 		margin-left: 25%;
@@ -157,7 +163,6 @@ footer{
 		font-size: 26px;
 	}
 	header{
-		/*text-align: left;*/
 		width: 98%;
 		margin-left: 10px;
 		display: inline-block;
@@ -165,6 +170,15 @@ footer{
 
 	.lowerRow{
 		margin-top: 0px;
+	}
+
+	#contactMe{
+		margin-top: 10px;
+	}
+	
+	.videoPlayer{
+		max-height: 530px;
+		width: 100%;
 	}
 
 }
