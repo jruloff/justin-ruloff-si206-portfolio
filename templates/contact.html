@@ -1,11 +1,10 @@
 {%extends "templates/base.html" %}
 {% block content %}
-	<p id="contactMe">If you would like to be updated on events that happen in my amazingly entertaining life (lol), please submit your e-mail and I will send you an e-mail thanking you for signing up to follow me!</p>
+	<p id="contactMe">If you would like to be updated on events that happen in my amazingly entertaining life (lol), please shoot me an e-mail and I will add you to my list-serve! (not really)</p>
 	<p>
 	<form action="mailto:justinruloff@gmail.com" onsubmit="this.submit(); this.reset(); return false;" method="post">
         <label>First Name:<input type="text" name="firstName"></label><br>
-        <label>Last Name:<input type="text" name="lastName"></label><br>
-        <label>E-mail:<input id="emailBox" type="email" name="emailAddr"></label><br>
+        <label>Last Name:<input type="text" name="lastName"></label><br><br>
         <input id="submitButton" type = "submit" class="btn btn-info" value="Submit">
     </form> 
 		

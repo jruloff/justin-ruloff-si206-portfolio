@@ -19,7 +19,7 @@ import os
 import logging
 import jinja2
 #import smtplib
-from google.appengine.api import mail
+#from google.appengine.api import mail
 
 # Lets set it up so we know where we stored the template files
 JINJA_ENVIRONMENT = jinja2.Environment(

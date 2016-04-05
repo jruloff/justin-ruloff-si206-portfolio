@@ -58,6 +58,10 @@ p{
 	text-align: center;
 }
 
+.hideThis{
+	display: none;
+}
+
 body{
 	padding-top: 60px;
 	font-size: 16px;
@@ -175,7 +179,7 @@ footer{
 	#contactMe{
 		margin-top: 10px;
 	}
-	
+
 	.videoPlayer{
 		max-height: 530px;
 		width: 100%;
